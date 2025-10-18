@@ -4,7 +4,7 @@ FROM node:22-alpine
 WORKDIR /app
 
 # Copy only dependency files first (for caching)
-COPY package*.json yarn.lock ./
+COPY package.json yarn.lock ./
 
 # Install dependencies
 RUN yarn install
@@ -15,7 +15,4 @@ COPY . .
 # Expose default Nuxt dev port
 EXPOSE 3000
 
-# ===============================
-# 🧠 Dev command (hot reload)
-# ===============================
 CMD ["yarn", "dev", "--host", "0.0.0.0"]

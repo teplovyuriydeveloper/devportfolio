@@ -3,13 +3,13 @@ version: "3.9"
 services:
   nuxt:
     build:
-      context: ./front
+      context: .
       dockerfile: Dockerfile
     container_name: nuxt-dev
     ports:
       - "3000:3000"
     volumes:
-      - ./front:/app        # Mount local code
+      - .:/app        # Mount local code
       - /app/node_modules   # Keep container’s node_modules separate
     environment:
       NUXT_HOST: 0.0.0.0
